@@ -12,7 +12,7 @@ class MyCrossPlatformProject(ConanFile):
     # Define all required third-party libraries
     def requirements(self):
         self.requires("spdlog/1.16.0")
-        self.requires("fmt/11.0.2")
+        self.requires("fmt/12.0.0")
         self.requires("libuv/1.51.0")
         self.requires("gtest/1.17.0") 
         self.requires("benchmark/1.9.4")

@@ -17,9 +17,10 @@ cd build
 echo "📦 Installing dependencies with Conan..."
 conan install .. --build=missing
 
-# Configure CMake
+# Configure CMake with Conan toolchain
 echo "🔧 Configuring CMake..."
-cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_TOOLCHAIN_FILE=Release/generators/conan_toolchain.cmake
 
 # Build
 echo "🔨 Building project..."

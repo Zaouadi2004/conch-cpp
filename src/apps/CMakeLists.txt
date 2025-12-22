@@ -4,4 +4,8 @@
 
 add_subdirectory(desktop_pro)
 add_subdirectory(ios_native)
-add_subdirectory(android_native)
+
+# Android app requires Android NDK
+if(ANDROID)
+    add_subdirectory(android_native)
+endif()

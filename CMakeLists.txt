@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.25)
 project(ConchCrossPlatform LANGUAGES CXX C)
 
 # --- Global Settings ---
-# Enable C++26 support (requires: MSVC 17.9+, GCC 14+, Clang 18+)
-set(CMAKE_CXX_STANDARD 26)
+# Enable C++23 support (widely supported: AppleClang 15+, GCC 11+, MSVC 19.30+)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
