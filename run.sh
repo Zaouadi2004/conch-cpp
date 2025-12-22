@@ -17,6 +17,9 @@ usage() {
     for exe in build/bin/*; do
         if [ -f "$exe" ] && [ -x "$exe" ]; then
             echo "  - $(basename $exe)"
+        elif [ -d "$exe" ] && [[ "$exe" == *.app ]]; then
+            # macOS .app bundle
+            echo "  - $(basename $exe .app)"
         fi
     done
     exit 1
@@ -27,14 +30,22 @@ if [ -z "$1" ]; then
     usage
 fi
 
-EXECUTABLE="build/bin/$1"
+EXEC_NAME="$1"
 
-# Check if executable exists
-if [ ! -f "$EXECUTABLE" ]; then
-    echo "❌ Executable '$1' not found in build/bin/"
-    usage
+# Check for regular executable
+if [ -f "build/bin/$EXEC_NAME" ] && [ -x "build/bin/$EXEC_NAME" ]; then
+    echo "🏃 Running $EXEC_NAME..."
+    "build/bin/$EXEC_NAME" "${@:2}"
+    exit 0
 fi
 
-# Run the executable
-echo "🏃 Running $1..."
-$EXECUTABLE "${@:2}"
+# Check for macOS .app bundle
+if [ -d "build/bin/${EXEC_NAME}.app" ]; then
+    echo "🏃 Running ${EXEC_NAME}.app..."
+    open "build/bin/${EXEC_NAME}.app"
+    exit 0
+fi
+
+# Not found
+echo "❌ Executable '$EXEC_NAME' not found in build/bin/"
+usage
