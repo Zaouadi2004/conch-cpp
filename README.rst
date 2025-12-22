@@ -2,233 +2,200 @@
 Conch Cross-Platform C++
 =========================
 
-.. image:: https://img.shields.io/badge/C%2B%2B-26-blue.svg
-   :alt: C++26
+.. image:: https://img.shields.io/badge/C%2B%2B-23-blue.svg
+   :alt: C++23
 
 .. image:: https://img.shields.io/badge/License-MIT-green.svg
    :alt: License
 
 .. image:: https://img.shields.io/badge/CMake-3.25%2B-blue.svg
-   :alt: CMake Version
+   :alt: CMake
 
-.. image:: https://github.com/yourusername/conch-cpp/workflows/CI%2FCD%20Pipeline/badge.svg
-   :alt: CI/CD Status
+.. image:: https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20iOS%20%7C%20Android-lightgrey
+   :alt: Platforms
 
-A **world-class**, modern C++ cross-platform framework for **High-Frequency Trading (HFT)** and **Real-Time Communication (RTC/Meeting)** applications.
+**A production-ready, batteries-included C++ framework for building everything from games to financial apps — in minutes, not months.**
 
-✨ Features
-===========
+🚀 **Build faster. Ship sooner. Scale forever.**
 
-- 🚀 **Modern C++26** with cutting-edge features
-- 🌍 **True Cross-Platform**: Windows, macOS, Linux, iOS, Android
-- 🏗️ **Modular Architecture**: Clean separation of concerns
-- 🧪 **Comprehensive Testing**: Unit tests + benchmarks
-- 📦 **Conan 2.x**: Modern dependency management
-- 🐳 **Docker Ready**: Multi-stage production builds
-- ⚙️ **CI/CD**: Jenkins, GitHub Actions, GitLab CI
-- 📚 **Auto Documentation**: Doxygen API docs
+💡 Tagline
+==========
+
+*"From Hello World to Production in One Framework"*
+
+✨ What Is This?
+================
+
+**Conch** is a modern, enterprise-grade C++ cross-platform framework that gets you from idea to deployed application at lightning speed. Whether you're building:
+
+- 🎮 **Games** (Snake, interactive apps)
+- 💰 **Trading Systems** (HFT engines, stock simulators)
+- 💬 **Real-Time Communication** (Chat servers, meeting gateways)  
+- 🌐 **Network Services** (TCP/UDP servers, WebSocket)
+- 📊 **Data Processing** (Analytics, monitoring)
+
+**Conch has you covered** with a battle-tested architecture, modern tooling, and zero boilerplate.
+
+🎯 Why Choose Conch?
+====================
+
+❌ **Before Conch:**
+   - Weeks spent on project setup
+   - CMake configuration hell
+   - Dependency management nightmares
+   - IDE incompatibilities
+   - No CI/CD templates
+   
+✅ **With Conch:**
+   - **5-Second Setup**: Clone, ``./build.sh``, done.
+   - **Any IDE**: VS2022, Xcode, CLion, VSCode — all pre-configured
+   - **Modern Dependencies**: Conan 2.x handles everything automatically
+   - **Production-Ready CI/CD**: Jenkins, GitHub Actions, GitLab CI templates included
+   - **Docker Ready**: Multi-stage builds, docker-compose orchestration
+
+⚡ Quick Start
+==============
+
+**Get running in 3 commands:**
+
+.. code-block:: bash
+
+   git clone https://github.com/yourusername/conch-cpp.git
+   cd conch-cpp
+   ./build.sh
+
+**That's it.** You now have:
+
+- ✅ HFT trading engine
+- ✅ RTC meeting gateway  
+- ✅ Stock trading simulator
+- ✅ Multi-client chat system
+- ✅ Snake game (CLI + Qt GUI)
+- ✅ Unit tests + benchmarks
+
+All built, all tested, all running.
+
+📦 What's Included?
+===================
+
+Pre-Built Applications
+-----------------------
+
+=========== ================================= ==============
+Category    Application                       Technology
+=========== ================================= ==============
+**Games**   Snake Game (CLI)                  Terminal UI
+**Games**   Snake Game (Qt)                   Qt6 Widgets
+**Finance** Stock Trading Simulator           Portfolio Mgmt
+**Network** Chat Server                       libuv TCP
+**Network** Chat Client                       Async I/O
+**HFT**     Trading Engine                    High-Perf
+**RTC**     Meeting Gateway                   WebRTC Ready
+**Desktop** Pro Desktop App                   Qt6 Cross-Platform
+=========== ================================= ==============
+
+Foundation Libraries
+--------------------
+
+- **foundation**: Logging, threading, utilities
+- **network**: High-performance networking (libuv)
+- **quant_core**: Quantitative finance models
+- **media_core**: RTC/Meeting infrastructure
+- **ui_kit**: Qt6 UI components
+
+Development Tools
+-----------------
+
+✅ **Multi-IDE Support**
+   - Visual Studio 2022 (Windows)
+   - Xcode (macOS)
+   - CLion (Linux)
+   - VSCode (All platforms)
+
+✅ **CI/CD Pipelines**
+   - Jenkins (Declarative pipeline)
+   - GitHub Actions (Matrix builds)
+   - GitLab CI (Multi-stage)
+
+✅ **Containerization**
+   - Dockerfile (Multi-stage production)
+   - docker-compose (Service orchestration)
+
+✅ **Documentation**
+   - Doxygen (API docs with diagrams)
+   - Auto-generation scripts
+
+✅ **Testing**
+   - GTest (Unit tests)
+   - Google Benchmark (Performance)
+   - Coverage reports (gcovr)
 
 🏗️ Architecture
 ================
 
-::
+Clean, modular, scalable:
 
-    src/
-    ├── libs/              # Reusable Foundation Libraries
-    │   ├── foundation/    # Core utilities, logging, threading
-    │   ├── network/       # High-performance networking (libuv)
-    │   ├── quant_core/    # Quantitative finance models
-    │   ├── media_core/    # RTC/Meeting core logic
-    │   └── ui_kit/        # Qt6 UI components (desktop)
-    ├── servers/           # Backend Services
-    │   ├── trading_engine/  # HFT matching engine
-    │   └── meeting_gateway/ # RTC signaling server
-    └── apps/              # End-User Applications
-        ├── desktop_pro/     # Qt-based desktop app
-        ├── ios_native/      # Native iOS (UIKit/SwiftUI)
-        └── android_native/  # Native Android (JNI)
+.. code-block:: text
 
-🚀 Quick Start
-==============
+   conch-cpp/
+   ├── src/
+   │   ├── libs/              # Reusable libraries
+   │   ├── servers/           # Backend services
+   │   └── apps/              # End-user applications
+   ├── tests/                 # Unit tests + benchmarks
+   ├── scripts/               # Build automation
+   ├── .github/workflows/     # CI/CD pipelines
+   └── docker/                # Containerization
 
-Prerequisites
--------------
+🚀 Usage Examples
+=================
 
-- **CMake**: 3.25+
-- **Conan**: 2.x
-- **Compiler**:
-  - GCC 14+ (Linux)
-  - Clang 18+ (macOS)
-  - MSVC 17.9+ / VS2022 (Windows)
-
-Build
------
-
-**Linux/macOS:**
+**Run a Chat Server:**
 
 .. code-block:: bash
 
-    ./build.sh
+   ./run.sh chat_server
+   # Server listening on port 8888
 
-**Windows:**
-
-.. code-block:: bat
-
-    scripts\build_vs2022.bat
-
-Run
----
+**Connect Chat Clients:**
 
 .. code-block:: bash
 
-    ./run.sh trading_engine
-    ./run.sh meeting_gateway
+   ./run.sh chat_client
+   # Start typing to chat!
 
-🛠️ IDE Support
-===============
-
-Visual Studio 2022 (Windows)
------------------------------
-
-.. code-block:: bat
-
-    scripts\build_vs2022.bat
-    start build_vs2022\ConchCrossPlatform.sln
-
-Xcode (macOS)
--------------
+**Trade Stocks:**
 
 .. code-block:: bash
 
-    ./scripts/build_xcode.sh
-    open build_xcode/ConchCrossPlatform.xcodeproj
+   ./run.sh stock_trader
+   # $100K virtual portfolio, 8 US stocks
 
-CLion (Linux)
--------------
-
-.. code-block:: bash
-
-    ./scripts/build_clion.sh
-    # Open project root in CLion
-
-Visual Studio Code (All Platforms)
------------------------------------
-
-1. Install recommended extensions (prompted on first open)
-2. Press ``Ctrl+Shift+B`` (Build)
-3. Press ``F5`` (Debug)
-
-Full configuration in ``.vscode/`` directory.
-
-🐳 Docker
-=========
-
-Build Image
------------
+**Play Snake:**
 
 .. code-block:: bash
 
-    docker build -t conch-cpp:latest .
+   ./run.sh snake_cli      # Terminal version
+   ./run.sh snake_qt       # Qt GUI version
 
-Run Services
-------------
+🛠️ Build Your Own App
+=======================
 
-.. code-block:: bash
+**Add a new application in 3 steps:**
 
-    docker-compose up -d
+1. Create directory: ``src/apps/my_app/``
+2. Add ``CMakeLists.txt`` (5 lines)
+3. Run ``./build.sh``
 
-Services:
-- ``trading_engine``: http://localhost:8080
-- ``meeting_gateway``: http://localhost:8081
+**Example CMakeLists.txt:**
 
-⚙️ CI/CD
-========
+.. code-block:: cmake
 
-GitHub Actions
---------------
+   add_executable(my_app main.cpp)
+   target_link_libraries(my_app 
+       PRIVATE foundation spdlog::spdlog)
 
-Automatic triggers on push to ``main``/``develop`` branches.
-
-Features:
-- Cross-platform matrix builds (Linux, macOS, Windows)
-- Automated testing + coverage
-- Docker image building
-- Artifact uploads
-
-Jenkins
--------
-
-See ``Jenkinsfile`` for declarative pipeline.
-
-Stages:
-1. Checkout
-2. Build (parallel: Linux + Docker)
-3. Test (unit + coverage)
-4. Generate docs
-5. Deploy (staging/production)
-
-GitLab CI
----------
-
-See ``.gitlab-ci.yml`` for pipeline configuration.
-
-🧪 Testing
-==========
-
-Run Tests
----------
-
-.. code-block:: bash
-
-    # Unix
-    ./scripts/run_tests.sh
-    
-    # With coverage
-    ./scripts/run_tests.sh --coverage
-    
-    # Windows
-    scripts\run_tests.bat
-
-Coverage Report
----------------
-
-After running with ``--coverage``, open:
-
-.. code-block:: bash
-
-    open build/coverage/index.html  # macOS
-    xdg-open build/coverage/index.html  # Linux
-
-📚 Documentation
-================
-
-Generate API Docs
------------------
-
-.. code-block:: bash
-
-    ./scripts/generate_docs.sh
-    open docs/html/index.html
-
-Requires **Doxygen** and **Graphviz**.
-
-🤝 Contributing
-===============
-
-We welcome contributions! Please see `CONTRIBUTING.md <CONTRIBUTING.md>`_ for guidelines.
-
-Quick checklist:
-- Fork the repository
-- Create a feature branch
-- Write tests for new code
-- Ensure all tests pass
-- Update documentation
-- Submit a pull request
-
-📄 License
-==========
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+Done. Your app is integrated into the framework.
 
 🌟 Technology Stack
 ===================
@@ -236,27 +203,103 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ========================  =============
 Component                 Technology
 ========================  =============
-Language                  C++26
-Build System              CMake 3.25+
-Package Manager           Conan 2.x
-Desktop UI                Qt6
-Mobile iOS                Native (UIKit)
-Mobile Android            Native (JNI)
-Logging                   spdlog
-Networking                libuv
-Testing                   GTest
-Benchmarking              Google Benchmark
-Documentation             Doxygen
+Language                  **C++23**
+Build System              **CMake 3.25+**
+Package Manager           **Conan 2.x**
+Desktop UI                **Qt6**
+Mobile (iOS)              Native (UIKit)
+Mobile (Android)          Native (JNI)
+Logging                   **spdlog**
+Networking                **libuv**
+Testing                   **GTest**
+Benchmarking              **Google Benchmark**
+Documentation             **Doxygen**
 CI/CD                     Jenkins, GitHub Actions
-Containerization          Docker
+Containerization          **Docker**
 ========================  =============
 
-📞 Contact
+📊 Production-Ready Features
+=============================
+
+✅ **Cross-Platform**
+   - Windows, macOS, Linux (desktop)
+   - iOS, Android (mobile native)
+
+✅ **Enterprise Build System**
+   - Conan 2.x dependency management
+   - CMake presets for all environments
+   - One-command builds
+
+✅ **Multi-IDE Support**
+   - Pre-configured for 4 major IDEs
+   - Just open and code
+
+✅ **Automated Testing**
+   - Unit tests with GTest
+   - Benchmarks with Google Benchmark
+   - Coverage reports with one command
+
+✅ **CI/CD Ready**
+   - GitHub Actions workflows
+   - Jenkins declarative pipelines
+   - GitLab CI configurations
+
+✅ **Docker Deployment**
+   - Multi-stage builds (small images)
+   - docker-compose orchestration
+   - Production-ready containers
+
+✅ **API Documentation**
+   - Doxygen auto-generation
+   - Call graphs, UML diagrams
+   - One-command: ``./scripts/generate_docs.sh``
+
+🎓 Perfect For
+==============
+
+✅ **Startups**: Ship MVPs in days, not months  
+✅ **Enterprises**: Production-ready architecture  
+✅ **Indie Developers**: Focus on features, not plumbing  
+✅ **Students**: Learn modern C++ best practices  
+✅ **Game Devs**: Cross-platform game framework  
+✅ **FinTech**: HFT/trading infrastructure built-in  
+
+📚 Documentation
+================
+
+- **Quick Start Guide**: `See above ↑`
+- **API Documentation**: Run ``./scripts/generate_docs.sh``
+- **Contributing**: See `CONTRIBUTING.md <CONTRIBUTING.md>`_
+- **Build Scripts**: See `scripts/ <scripts/>`_
+
+🤝 Contributing
+===============
+
+We love contributions! See `CONTRIBUTING.md <CONTRIBUTING.md>`_ for:
+
+- Code style guidelines
+- Pull request process
+- Development setup
+- Testing requirements
+
+📄 License
 ==========
+
+MIT License - Use it, modify it, ship it. See `LICENSE <LICENSE>`_.
+
+🌟 Show Your Support
+====================
+
+If you find Conch useful, give us a ⭐ on GitHub!
+
+💬 Community
+============
 
 - **Issues**: `GitHub Issues <https://github.com/yourusername/conch-cpp/issues>`_
 - **Discussions**: `GitHub Discussions <https://github.com/yourusername/conch-cpp/discussions>`_
 
 ---
 
-Made with ❤️ by the Conch Team
+**Built with ❤️ for the C++ community**
+
+*Don't just code. Ship.*
