@@ -5,7 +5,6 @@ FROM ubuntu:22.04 AS builder
 # Install build dependencies and Qt system requirements
 RUN apt-get update && apt-get install -y \
     build-essential \
-    cmake \
     ninja-build \
     git \
     python3 \
@@ -30,7 +29,14 @@ RUN apt-get update && apt-get install -y \
     libxcb1 \
     libfontconfig1 \
     libdbus-1-dev \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Install CMake 3.28 (required version >= 3.25)
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.sh -O /tmp/cmake.sh \
+    && chmod +x /tmp/cmake.sh \
+    && /tmp/cmake.sh --skip-license --prefix=/usr/local \
+    && rm /tmp/cmake.sh
 
 # Install Conan
 RUN pip3 install conan
