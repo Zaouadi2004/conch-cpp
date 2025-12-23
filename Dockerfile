@@ -2,7 +2,7 @@
 # Stage 1: Build environment
 FROM ubuntu:22.04 AS builder
 
-# Install build dependencies
+# Install build dependencies and Qt system requirements
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
@@ -14,6 +14,22 @@ RUN apt-get update && apt-get install -y \
     curl \
     libgl1-mesa-dev \
     pkg-config \
+    xkb-data \
+    libxkbcommon-x11-0 \
+    libxkbcommon-dev \
+    libxcb-xkb1 \
+    libxcb-icccm4 \
+    libxcb-image0 \
+    libxcb-keysyms1 \
+    libxcb-randr0 \
+    libxcb-render-util0 \
+    libxcb-shape0 \
+    libxcb-sync1 \
+    libxcb-xfixes0 \
+    libxcb-xinerama0 \
+    libxcb1 \
+    libfontconfig1 \
+    libdbus-1-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Conan
@@ -31,12 +47,12 @@ RUN mkdir -p build
 # Create Conan default profile
 RUN conan profile detect --force
 
-# Install Conan dependencies with same config as build.sh
+# Install Conan dependencies (no sudo needed in Docker as root user)
 WORKDIR /app/build
 RUN conan install .. \
     --build=missing \
     -c tools.system.package_manager:mode=install \
-    -c tools.system.package_manager:sudo=True
+    -c tools.system.package_manager:sudo=False
 
 # Configure CMake with Conan toolchain (matching build.sh)
 RUN cmake .. \
