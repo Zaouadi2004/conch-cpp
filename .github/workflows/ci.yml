@@ -41,7 +41,7 @@ jobs:
     - name: Cache Conan packages
       uses: actions/cache@v4
       with:
-        path: ~/.conan
+        path: ~/.conan2
         key: ${{ runner.os }}-conan-${{ hashFiles('**/conanfile.py') }}
         restore-keys: |
           ${{ runner.os }}-conan-
