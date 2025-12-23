@@ -60,7 +60,7 @@ Conch Cross-Platform C++
 
 .. code-block:: bash
 
-   git clone https://github.com/yourusername/conch-cpp.git
+   git clone https://github.com/ConchFeng/conch-cpp.git
    cd conch-cpp
    ./build.sh
 
@@ -295,8 +295,8 @@ If you find Conch useful, give us a ⭐ on GitHub!
 💬 Community
 ============
 
-- **Issues**: `GitHub Issues <https://github.com/yourusername/conch-cpp/issues>`_
-- **Discussions**: `GitHub Discussions <https://github.com/yourusername/conch-cpp/discussions>`_
+- **Issues**: `GitHub Issues <https://github.com/ConchFeng/conch-cpp/issues>`_
+- **Discussions**: `GitHub Discussions <https://github.com/ConchFeng/conch-cpp/discussions>`_
 
 ---
 
