@@ -6,11 +6,11 @@ echo Conch Cross-Platform - VS2022 Build
 echo ========================================
 
 :: 1. Create build directory
-if not exist "build_vs2022" (
-    echo [INFO] Creating build directory 'build_vs2022'...
-    mkdir build_vs2022
+if not exist "build" (
+    echo [INFO] Creating build directory 'build'...
+    mkdir build
 )
-cd build_vs2022
+cd build
 
 :: 2. Auto-detect system environment
 echo [1/5] Detecting Conan profile...
@@ -37,7 +37,7 @@ if %errorlevel% neq 0 (
 :: FIX: Ensure CMake also knows we are using C++23
 echo [3/5] Generating Visual Studio 2022 solution...
 cmake .. -G "Visual Studio 17 2022" -A x64 ^
-  -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake ^
+  -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake ^
   -DCMAKE_POLICY_DEFAULT_CMP0091=NEW ^
   -DCMAKE_CXX_STANDARD=23 ^
   -DCMAKE_BUILD_TYPE=Release
@@ -61,7 +61,7 @@ echo Solution file: %CD%\ConchCrossPlatform.sln
 echo Binaries:      %CD%\bin\Release\
 echo.
 echo To open in Visual Studio 2022:
-echo    start build_vs2022\ConchCrossPlatform.sln
+echo    start build\ConchCrossPlatform.sln
 echo.
 
 endlocal
