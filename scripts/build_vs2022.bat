@@ -1,36 +1,67 @@
 @echo off
-REM Build script for Visual Studio 2022 on Windows
+setlocal enabledelayedexpansion
 
 echo ========================================
 echo Conch Cross-Platform - VS2022 Build
 echo ========================================
 
-REM Create build directory for VS2022
-if not exist "build_vs2022" mkdir build_vs2022
-cd build_vs2022
+:: 1. Create build directory
+if not exist "build" (
+    echo [INFO] Creating build directory 'build'...
+    mkdir build
+)
+cd build
 
-echo.
-echo [1/4] Installing Conan dependencies...
-conan install .. --build=missing -s compiler="Visual Studio" -s compiler.version=17
+:: 2. Auto-detect system environment
+echo [1/5] Detecting Conan profile...
+conan profile detect --force
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to detect Conan profile.
+    exit /b %errorlevel%
+)
 
-echo.
-echo [2/4] Generating Visual Studio 2022 solution...
+:: 3. Install Conan dependencies
+:: FIX: Set C++ Standard to 23 (Cutting edge!)
+echo [2/5] Installing Conan dependencies...
+conan install .. ^
+  --build=missing ^
+  --settings=build_type=Release ^
+  --settings=compiler.cppstd=23 ^
+  -c tools.system.package_manager:mode=install
+if %errorlevel% neq 0 (
+    echo [ERROR] Conan install failed. Exiting.
+    exit /b %errorlevel%
+)
+
+:: 4. Generate Visual Studio 2022 Solution
+:: FIX: Ensure CMake also knows we are using C++23
+echo [3/5] Generating Visual Studio 2022 solution...
 cmake .. -G "Visual Studio 17 2022" -A x64 ^
-    -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake ^
-    -DCMAKE_BUILD_TYPE=Release
+  -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake ^
+  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW ^
+  -DCMAKE_CXX_STANDARD=23 ^
+  -DCMAKE_BUILD_TYPE=Release
+if %errorlevel% neq 0 (
+    echo [ERROR] CMake configuration failed. Exiting.
+    exit /b %errorlevel%
+)
+
+:: 5. Build the project
+echo [4/5] Building project (Release)...
+cmake --build . --config Release --parallel
+if %errorlevel% neq 0 (
+    echo [ERROR] Build failed. Exiting.
+    exit /b %errorlevel%
+)
 
 echo.
-echo [3/4] Building project (Release)...
-cmake --build . --config Release -j
-
+echo [5/5] Build complete!
 echo.
-echo [4/4] Build complete!
-echo.
-echo Solution file: build_vs2022\ConchCrossPlatform.sln
-echo Binaries: build_vs2022\bin\Release\
+echo Solution file: %CD%\ConchCrossPlatform.sln
+echo Binaries:      %CD%\bin\Release\
 echo.
 echo To open in Visual Studio 2022:
-echo   start ConchCrossPlatform.sln
+echo    start build\ConchCrossPlatform.sln
 echo.
 
-cd ..
+endlocal

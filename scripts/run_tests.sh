@@ -47,6 +47,9 @@ if [ "$COVERAGE" = true ] && [ "$(uname)" = "Linux" ]; then
     # Install gcovr if not present
     command -v gcovr >/dev/null 2>&1 || pip3 install gcovr
     
+    # Create coverage directory if it doesn't exist
+    mkdir -p coverage
+    
     # Generate HTML coverage report
     gcovr -r .. --html --html-details -o coverage/index.html
     gcovr -r .. --xml -o coverage/coverage.xml

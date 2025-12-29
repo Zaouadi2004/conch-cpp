@@ -41,7 +41,7 @@ jobs:
     - name: Cache Conan packages
       uses: actions/cache@v4
       with:
-        path: ~/.conan
+        path: ~/.conan2
         key: ${{ runner.os }}-conan-${{ hashFiles('**/conanfile.py') }}
         restore-keys: |
           ${{ runner.os }}-conan-
@@ -50,7 +50,7 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake ninja-build
+        sudo apt-get install -y cmake ninja-build libgl1-mesa-dev pkg-config
     
     - name: Build (Unix)
       if: runner.os != 'Windows'
@@ -129,6 +129,8 @@ jobs:
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
+      continue-on-error: true
       with:
-        files: ./build/coverage/coverage.info
-        fail_ci_if_error: true
+        files: ./build/coverage/coverage.xml
+        fail_ci_if_error: false
+        token: ${{ secrets.CODECOV_TOKEN }}

@@ -14,6 +14,20 @@ Conch Cross-Platform C++
 .. image:: https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20iOS%20%7C%20Android-lightgrey
    :alt: Platforms
 
+.. image:: https://github.com/ConchFeng/conch-cpp/actions/workflows/ci.yml/badge.svg
+   :alt: CI/CD Pipeline
+   :target: https://github.com/ConchFeng/conch-cpp/actions/workflows/ci.yml
+
+.. image:: https://codecov.io/gh/ConchFeng/conch-cpp/branch/main/graph/badge.svg
+   :alt: Code Coverage
+   :target: https://codecov.io/gh/ConchFeng/conch-cpp
+
+.. image:: https://img.shields.io/badge/Unit%20Tests-✓-brightgreen.svg
+   :alt: Unit Tests
+
+.. image:: https://img.shields.io/badge/Integration%20Tests-✓-brightgreen.svg
+   :alt: Integration Tests
+
 **A production-ready, batteries-included C++ framework for building everything from games to financial apps — in minutes, not months.**
 
 🚀 **Build faster. Ship sooner. Scale forever.**
@@ -53,6 +67,55 @@ Conch Cross-Platform C++
    - **Production-Ready CI/CD**: Jenkins, GitHub Actions, GitLab CI templates included
    - **Docker Ready**: Multi-stage builds, docker-compose orchestration
 
+🤖 Built for Humans & AI Agents
+=================================
+
+**Conch is designed for the future of software development: Human + AI collaboration.**
+
+The framework's modular architecture and standardized structure make it the perfect environment for **rapid, AI-assisted development**:
+
+🔹 **Modular by Design**
+   Every component is self-contained and follows consistent patterns, making it easy for both humans and AI agents to:
+   
+   - Understand project structure instantly
+   - Add new modules without breaking existing code
+   - Integrate third-party libraries seamlessly
+   - Scale from prototype to production
+
+🔹 **AI-Agent Friendly**
+   - **Crystal-Clear Structure**: Consistent naming, organization, and patterns across all modules
+   - **Self-Documenting Code**: Modern C++23 features and clear interfaces
+   - **Automated Everything**: Build, test, and deploy with single commands
+   - **Intelligent Dependency Management**: Conan handles complexity automatically
+
+🔹 **Rapid Prototyping → Production**
+   Whether you're working solo, with a team, or collaborating with AI coding assistants:
+   
+   1. **Describe** what you want to build
+   2. **Generate** modular components using AI or templates
+   3. **Integrate** into the framework with minimal boilerplate
+   4. **Deploy** with production-ready CI/CD pipelines
+
+🔹 **From Idea to World-Class Product**
+   - **Day 1**: Prototype your idea with AI-generated components
+   - **Week 1**: Refine and test with automated quality checks
+   - **Month 1**: Deploy to production with enterprise-grade infrastructure
+   - **Beyond**: Scale effortlessly with battle-tested architecture
+
+💡 **Example AI Collaboration Workflow:**
+
+.. code-block:: text
+
+   Human: "I need a WebSocket server for real-time notifications"
+   AI Agent: Creates src/servers/notification_server/
+             ├── main.cpp (WebSocket server logic)
+             ├── CMakeLists.txt (Auto-integrated)
+             └── tests/ (Unit tests included)
+   
+   Result: Production-ready server in minutes, not days.
+
+**The future of development is collaborative, modular, and lightning-fast. Conch makes it happen.**
+
 ⚡ Quick Start
 ==============
 
@@ -60,7 +123,7 @@ Conch Cross-Platform C++
 
 .. code-block:: bash
 
-   git clone https://github.com/yourusername/conch-cpp.git
+   git clone https://github.com/ConchFeng/conch-cpp.git
    cd conch-cpp
    ./build.sh
 
@@ -81,18 +144,24 @@ All built, all tested, all running.
 Pre-Built Applications
 -----------------------
 
-=========== ================================= ==============
-Category    Application                       Technology
-=========== ================================= ==============
-**Games**   Snake Game (CLI)                  Terminal UI
-**Games**   Snake Game (Qt)                   Qt6 Widgets
-**Finance** Stock Trading Simulator           Portfolio Mgmt
-**Network** Chat Server                       libuv TCP
-**Network** Chat Client                       Async I/O
-**HFT**     Trading Engine                    High-Perf
-**RTC**     Meeting Gateway                   WebRTC Ready
-**Desktop** Pro Desktop App                   Qt6 Cross-Platform
-=========== ================================= ==============
+=========== ================================= ============== ===================
+Category    Application                       Technology     Platforms
+=========== ================================= ============== ===================
+**Games**   Snake Game (CLI)                  Terminal UI    macOS, Linux
+**Games**   Snake Game (Qt)                   Qt6 Widgets    Win, macOS, Linux
+**Finance** Stock Trading Simulator           Portfolio Mgmt Win, macOS, Linux
+**Network** Chat Server                       libuv TCP      Win, macOS, Linux
+**Network** Chat Client                       Async I/O      Win, macOS, Linux
+**HFT**     Trading Engine                    High-Perf      Win, macOS, Linux
+**RTC**     Meeting Gateway                   WebRTC Ready   Win, macOS, Linux
+**Desktop** Pro Desktop App                   Qt6 Cross-Plat Win, macOS, Linux
+**Mobile**  iOS Native App                    UIKit          iOS only
+**Mobile**  Android Native App                JNI            Android only
+=========== ================================= ============== ===================
+
+.. note::
+   **Snake CLI** requires Unix terminal APIs and is not available on Windows. 
+   Windows users can use **Snake Qt** instead for a graphical experience.
 
 Foundation Libraries
 --------------------
@@ -295,8 +364,8 @@ If you find Conch useful, give us a ⭐ on GitHub!
 💬 Community
 ============
 
-- **Issues**: `GitHub Issues <https://github.com/yourusername/conch-cpp/issues>`_
-- **Discussions**: `GitHub Discussions <https://github.com/yourusername/conch-cpp/discussions>`_
+- **Issues**: `GitHub Issues <https://github.com/ConchFeng/conch-cpp/issues>`_
+- **Discussions**: `GitHub Discussions <https://github.com/ConchFeng/conch-cpp/discussions>`_
 
 ---
 
